@@ -3,6 +3,7 @@
 ![Continuous Integration](https://github.com/facebook/between-meals/workflows/Continuous%20Integration/badge.svg?event=push)
 
 ## Intro
+
 Ohai!
 
 Between Meals is the library for calculating what Chef objects were modified
