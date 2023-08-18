@@ -40,20 +40,17 @@ module BetweenMeals
           exit(1)
         end
         logger.info('Trying to detect repo type')
-        require 'between_meals/repo/git'
-        require 'between_meals/repo/hg'
-        require 'between_meals/repo/svn'
-        [
-          BetweenMeals::Repo::Git,
-          BetweenMeals::Repo::Hg,
-          BetweenMeals::Repo::Svn,
-        ].each do |klass|
-
-          r = klass.new(repo_path, logger)
-          if r.exists?
-            logger.info("Repo found to be #{klass.to_s.split('::').last}")
-            return r
-          end
+        {
+          BetweenMeals::Repo::Hg => 'between_meals/repo/hg',
+          BetweenMeals::Repo::Svn => 'between_meals/repo/svn',
+          BetweenMeals::Repo::Git => 'between_meals/repo/git',
+        }.each do |klass, req|
+            require req
+            r = klass.new(repo_path, logger)
+            if r.exists?
+              logger.info("Repo found to be #{klass.to_s.split('::').last}")
+              return r
+            end
         rescue StandardError
           logger.debug("Skipping #{klass}")
 
