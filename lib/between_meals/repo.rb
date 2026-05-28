@@ -39,6 +39,7 @@ module BetweenMeals
         end
         logger.info('Trying to detect repo type')
         {
+          'Sapling' => 'between_meals/repo/sapling',
           'Hg' => 'between_meals/repo/hg',
           'Svn' => 'between_meals/repo/svn',
           'Git' => 'between_meals/repo/git',
@@ -56,6 +57,9 @@ module BetweenMeals
         end
         logger.warn("Failed detecting repo type at #{repo_path}")
         exit(1)
+      when 'sapling'
+        require 'between_meals/repo/sapling'
+        BetweenMeals::Repo::Sapling.new(repo_path, logger)
       when 'hg'
         require 'between_meals/repo/hg'
         BetweenMeals::Repo::Hg.new(repo_path, logger)

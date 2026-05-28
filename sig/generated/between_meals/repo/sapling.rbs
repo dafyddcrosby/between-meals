@@ -1,0 +1,61 @@
+# Copyright (c) 2026-present, Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Generated from lib/between_meals/repo/sapling.rb with RBS::Inline
+
+module BetweenMeals
+  class Repo
+    class Sapling < BetweenMeals::Repo
+      def setup: () -> untyped
+
+      def exists?: () -> untyped
+
+      def head_rev: () -> untyped
+
+      def checkout: (untyped url) -> untyped
+
+      # Return files changed between two revisions
+      def changes: (untyped start_ref, untyped end_ref) -> untyped
+
+      def update: () -> untyped
+
+      # Return all files
+      def files: () -> untyped
+
+      def head_parents: () -> untyped
+
+      def last_author: () -> untyped
+
+      def last_msg: () -> untyped
+
+      def last_msg=: (untyped msg) -> untyped
+
+      def email: () -> untyped
+
+      def name: () -> untyped
+
+      def status: () -> untyped
+
+      def upstream?: (untyped rev) -> untyped
+
+      def valid_ref?: (untyped ref) -> untyped
+
+      private
+
+      def username: () -> untyped
+
+      def parse_status: (untyped changes) -> untyped
+    end
+  end
+end
